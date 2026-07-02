@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('book_id')
-                ->nullable()->constrained()
-                ->nullOnDelete();
-
+                ->constrained();
+        
             $table->integer('review_rating');
             $table->text('review_description');
             $table->timestamps();
