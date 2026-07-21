@@ -11,6 +11,11 @@
                     New Book
                 </router-link>
             </li>
+            <li class="nav">
+                 <router-link :to="{name: 'authors.overview'}">
+                    Author Overview
+                </router-link>
+            </li>
         </ul>
         
        

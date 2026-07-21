@@ -12,15 +12,22 @@ onMounted(() => {
 <template>
 
     <div class="grid-container-fluid">
-        <div class="grid-container">
+        <div class="grid-container max-width">
             <div class="col-12">
                 <h1 class="py-3">
                     Hello There!
                 </h1>
-                <table>
+                <table class="table-bg">
+                    <colgroup>
+                        <col class="table-w-40">
+                        <col class="">
+                    </colgroup>
                     <tr>
-                        <th>Title</th>
-                        <th>Summary</th>
+                        <th class="table-title-xl" colspan="2">Books</th>
+                    </tr>
+                    <tr>
+                        <th class="table-title">Title</th>
+                        <th class="table-title">Summary</th>
                     </tr>
                     <tr v-for="book in getAllBooks" :key="book.id">
                         <td>

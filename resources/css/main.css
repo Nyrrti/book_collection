@@ -3,11 +3,16 @@
     --bg-color-white: #ebebeb;
  
     --color-darkblue: #09385F;
+    --color-lightblue: #919bcf;
+    --color-purple: #52449c;
+    --color-darkpurple: #200945;
     --color-cyan: #5ed1e3;
-    
-    --font-color-light: #D1CCFF;
-    --font-color-dark: #292c2c;
-    --font-color-medium: #4f5357;
+
+    --table-bg: #c8cce1;
+
+    --font-color-light: #B3C1FF;
+    --font-color-dark: #26272a;
+    --font-color-medium: #40444b;
     --font-color-title-light: #ff9f55;
     --font-color-title-dark: #ef6d0a;
 
@@ -22,8 +27,8 @@
 
     --gradient-bg: linear-gradient(
         180deg,
-        rgb(55, 105, 146) 0%,
-        rgb(45, 74, 121) 80%
+        rgb(28, 16, 73) 0%,
+        rgb(33, 55, 91) 60%
     );
 }
 
@@ -163,7 +168,7 @@ a.footer:hover {
 
 .nav-bar {
     height:6rem;
-    background-color: var(--color-darkblue);
+    background-color: var(--color-darkpurple);
     z-index: 10;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -329,11 +334,19 @@ select {
     padding: 0.35rem;
 }
 
+.table-bg {
+    background-color: var(--table-bg);
+}
+
 th.table-title {
-    background-color: var(--color-dark-green);
-    font-size: var(--font-size-sm);
-    color: var(--font-color-light);
+    font-size: var(--font-size-md);
+    color: var(--font-color-dark);
     padding: 1.5rem 0.75rem;
+}
+
+th.table-title-xl {
+    font-size: var(--font-size-xl);
+    color: var(--color-darkpurple);
 }
 
 th {
@@ -351,11 +364,11 @@ td.border-bottom {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: color-mix(in srgb, var(--color-light-grey) 98%, black);
+    background-color: color-mix(in srgb, var(--bg-color-white) 98%, black);
 }
 
 tbody tr:nth-child(even) {
-    background-color: color-mix(in srgb, var(--color-light-grey) 94%, black);
+    background-color: color-mix(in srgb, var(--bg-color-white) 94%, black);
 }
 
 tbody tr:hover {
@@ -372,7 +385,7 @@ tbody tr:hover {
 @media only screen and (min-width: 2000px) {
    
     .nav-bar {
-        height: 6.2rem;
+        height: 6.25rem;
     }
 }
 

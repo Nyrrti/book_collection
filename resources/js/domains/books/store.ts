@@ -10,7 +10,6 @@ interface Book {
 // state
 const books = ref<Book[]>([]);
 
-
 //getters
 export const getAllBooks = computed(() => books.value);
 
