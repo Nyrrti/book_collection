@@ -1,20 +1,11 @@
 
 :root {
     --bg-color-white: #ebebeb;
-    --bg-color-grey: #dfdfdf;
-    --bg-color-light-green: #a1c965;
-    --bg-color-footer: #364043;
-
-    --color-lighter-orange: #ff862a;
-    --color-orange: #ef6d0a;
-    --color-cyan: #18b4a4;
-    --color-red: #d92222;
-    --color-dark-green: #699d4b;
-    --color-light-grey: #e5e5e5;
-    --color-medium-grey: #bbbbbb;
-    --color-icons: #8d8d8d;
+ 
+    --color-darkblue: #09385F;
+    --color-cyan: #5ed1e3;
     
-    --font-color-light: #fff;
+    --font-color-light: #D1CCFF;
     --font-color-dark: #292c2c;
     --font-color-medium: #4f5357;
     --font-color-title-light: #ff9f55;
@@ -119,13 +110,13 @@ p.footer {
 }
 
 a {
-    color: var(--font-color-dark);
+    color: var(--font-color-light);
     font-size: var(--font-size-md);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-lighter-orange);
+    color: var(--color-cyan);
 }
 
 a.footer {
@@ -171,8 +162,8 @@ a.footer:hover {
 }
 
 .nav-bar {
-    height:5.5rem;
-    background-color: var(--bg-color-white);
+    height:6rem;
+    background-color: var(--color-darkblue);
     z-index: 10;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -316,16 +307,6 @@ li {
 
 .border-bottom {
     border-bottom: 2px solid var(--color-dark-green);
-}
-
-.main-container {
-    background-color: var(--color-light-grey);
-    border: 1px solid var(--color-medium-grey);
-}
-
-.border-page {
-    background-color: var(--bg-color-grey);
-    border: 10px solid var(--bg-color-white);
 }
 
 input {

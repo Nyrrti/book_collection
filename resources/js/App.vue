@@ -1,17 +1,19 @@
 <template>
-    <nav>
-        <router-link :to="{name: 'books.overview'}">Book Overview</router-link> |
-        <router-link :to="{name: 'books.create'}">New Book</router-link>
+    <nav class="nav-bar d-flex items-center justify-center">
+        <ul>
+            <li class="nav">
+                <router-link :to="{name: 'books.overview'}">
+                    Book Overview
+                </router-link> 
+            </li>
+            <li class="nav">
+                 <router-link :to="{name: 'books.create'}">
+                    New Book
+                </router-link>
+            </li>
+        </ul>
+        
+       
     </nav>
     <router-view></router-view>
-
-    <div class="grid-container-fluid">
-        <div class="grid-container">
-            <div class="col-12">
-                <h1>
-                    Hello There! From App.vue
-                </h1>
-            </div>
-        </div>
-    </div>
 </template>
