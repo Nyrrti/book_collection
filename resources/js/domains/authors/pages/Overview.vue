@@ -13,23 +13,23 @@ onMounted(() => {
 
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
-            <div class="col-12">
-                <h1 class="py-3">
-                    Hello There!
-                </h1>
+            <div class="col-12 table-bg p-5">
                 <table class="table-bg">
+                    <thead>
                     <tr>
-                        <th class="table-title-xl" colspan="2">Authors</th>
+                        <th class="table-title-xl">Authors</th>
                     </tr>
                     <tr>
                         <th class="table-title">Name:</th>
-                        
                     </tr>
-                    <tr v-for="author in getAllAuthors" :key="author.id">
-                        <td>
-                            {{ author.name }}
-                        </td>
-                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="author in getAllAuthors" :key="author.id">
+                            <td class="border-bottom">
+                                {{ author.name }}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

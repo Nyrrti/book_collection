@@ -2,16 +2,21 @@
 :root {
     --bg-color-white: #ebebeb;
  
-    --color-darkblue: #09385F;
-    --color-lightblue: #919bcf;
+    --color-darkblue: #15568a;
+    --color-lightblue: #77a1ea;
     --color-purple: #52449c;
-    --color-darkpurple: #200945;
-    --color-cyan: #5ed1e3;
+    --color-darkpurple: #371179;
+    --color-cyan: #52d7c5;
+    --color-medium-grey: #c0c1c3;
+    --color-red: #d08383;
 
-    --table-bg: #c8cce1;
+    --table-bg: #e0e0e8;
+    --table-title: #ffbf5f;
+    --table-title-dark: #0C5461;
+    --table-border: #697e9d;
 
-    --font-color-light: #B3C1FF;
-    --font-color-dark: #26272a;
+    --font-color-light: #c1dcff;
+    --font-color-dark: #1f2023;
     --font-color-medium: #40444b;
     --font-color-title-light: #ff9f55;
     --font-color-title-dark: #ef6d0a;
@@ -27,8 +32,8 @@
 
     --gradient-bg: linear-gradient(
         180deg,
-        rgb(28, 16, 73) 0%,
-        rgb(33, 55, 91) 60%
+        rgb(49, 32, 116) 0%,
+        rgb(39, 65, 107) 75%
     );
 }
 
@@ -170,7 +175,7 @@ a.footer:hover {
     height:6rem;
     background-color: var(--color-darkpurple);
     z-index: 10;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(37, 117, 175, 0.25) 0px 5px 10px -5px, rgba(38, 113, 165, 0.3) 0px 8px 64px -8px;
 }
 
 li.nav {
@@ -191,8 +196,8 @@ li.nav {
 
 .btn {
     font-family: var(--font-family-title);
-    background-color: var(--color-dark-green);
-    color: var(--font-color-light);
+    background-color: var(--color-cyan);
+    color: var(--font-color-dark);
     border: 0px;
     border-radius: 1.5rem;
     font-size: var(--font-size-xsm);
@@ -214,8 +219,8 @@ li.nav {
 }
 
 .btn:hover {
-    background-color: color-mix(in srgb, var(--color-dark-green) 80%, black);
-    color: var(--font-color-light);
+    background-color: color-mix(in srgb, var(--color-cyan) 80%, black);
+    color: var(--font-color-dark);
 }
 
 .btn.back {
@@ -229,30 +234,28 @@ li.nav {
 }
 
 .btn.edit {
-    background-color: transparent;
-    color: var(--color-icons);
-    padding: 0rem;
+    background-color: var(--color-lightblue);
+    color: var(--font-color-dark);
 }
 
 .btn.edit:hover {
-    color: var(--color-cyan);
+    color: var(--font-color-dark);
 }
 
 .btn.add {
-    background-color: var(--color-orange);
+    background-color: var(--color-cyan);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     text-transform: uppercase;
 }
 
 .btn.add:hover {
-    background-color: color-mix(in srgb, var(--color-orange) 85%, black);
+    background-color: color-mix(in srgb, var(--color-cyan) 85%, black);
 }
 
 .btn.delete {
-    background-color: transparent;
-    color: var(--color-icons);
-    padding: 0rem;
+    background-color: var(--color-red);
+    color: var(--font-color-dark);
 }
 
 .btn.delete:hover {
@@ -264,8 +267,13 @@ li.nav {
     color: var(--font-color-medium);
 }
 
-.small {
+.x-small {
     font-size: var(--font-size-xsm);
+    line-height: 1.25rem;
+}
+
+.small {
+    font-size: var(--font-size-sm);
 }
 
 ul {
@@ -311,13 +319,20 @@ li {
 }
 
 .border-bottom {
-    border-bottom: 2px solid var(--color-dark-green);
+    border-bottom: 1px solid var(--table-border);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
 }
 
 input {
     background-color: var(--bg-color-white);
     border: 1px solid var(--color-medium-grey);
-    padding: 0.35rem;
+    padding: 0.55rem;
 }
 
 textarea {
@@ -340,7 +355,7 @@ select {
 
 th.table-title {
     font-size: var(--font-size-md);
-    color: var(--font-color-dark);
+    color: var(--table-title-dark);
     padding: 1.5rem 0.75rem;
 }
 
@@ -355,20 +370,22 @@ th {
 }
 
 td {
+    background-color: var(--table-bg);
+    font-size: var(--font-size-sm);
     text-align: left;
-    padding: 0.5rem 0.75rem;
+    padding: 0.9rem;
 }
 
 td.border-bottom {
-    border-bottom: 1px solid var(--color-medium-grey);
+    border-bottom: 1px solid var(--table-border);
 }
 
 tbody tr:nth-child(odd) {
-    background-color: color-mix(in srgb, var(--bg-color-white) 98%, black);
+    background-color: color-mix(in srgb, var(--table-bg) 98%, black);
 }
 
 tbody tr:nth-child(even) {
-    background-color: color-mix(in srgb, var(--bg-color-white) 94%, black);
+    background-color: color-mix(in srgb, var(--table-bg) 94%, black);
 }
 
 tbody tr:hover {

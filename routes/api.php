@@ -9,6 +9,16 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/books', [BookController::class, 'index']);
 
+//GET
+Route::get('/books', [BookController::class, 'index']);
 Route::get('/authors', [AuthorController::class, 'index']);
+
+//POST
+Route::post('/books', [BookController::class, 'store']);
+
+//PUT
+Route::put('/books/{book}', [BookController::class, 'update']);
+
+//DELETE
+Route::delete('/books/{book}', [BookController::class, 'destroy']);
