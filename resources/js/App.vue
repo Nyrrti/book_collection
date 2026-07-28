@@ -16,6 +16,11 @@
                     Author Overview
                 </router-link>
             </li>
+            <li class="nav">
+                 <router-link :to="{name: 'authors.create'}">
+                    New Author
+                </router-link>
+            </li>
         </ul>
         
        

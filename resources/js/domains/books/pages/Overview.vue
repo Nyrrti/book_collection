@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
-import { getAllBooks, fetchBooks } from '../store';
+import { getAllBooks, fetchBooks, deleteBook } from '../store';
 
 onMounted(() => {
     fetchBooks();

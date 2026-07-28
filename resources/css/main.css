@@ -259,7 +259,8 @@ li.nav {
 }
 
 .btn.delete:hover {
-     color: var(--color-red);
+    background-color: color-mix(in srgb, var(--color-red) 85%, black);
+    color: var(--font-color-light);
 }
 
 .btn:disabled {

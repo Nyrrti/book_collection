@@ -35,7 +35,7 @@ const handleSubmit = async (data: CreateBook) => {
 <template>
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
-            <div class="col-12 table-bg p-5 border-radius">
+            <div class="col-12 table-bg p-5">
                 <h2 class="dark">Add new book</h2>
                 <Form :book="book" @submit="handleSubmit" />
             </div>
