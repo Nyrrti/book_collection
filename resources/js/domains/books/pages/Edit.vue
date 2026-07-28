@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import Form from '../components/Form.vue';
-import { fetchBooks, getBookById, updateBook } from '../store';
-import type { UpdateBook } from '../types.ts'
+import { bookStore } from '../store';
+import type { UpdateBook } from '../types';
 
 const route = useRoute();
 const router = useRouter();
 
-fetchBooks();
-
 const id = Number(route.params.id);
-const book = getBookById(id);
+
+const book = bookStore.getters.getById(id);
 
 const handleSubmit = async (data: UpdateBook) => {
-    await updateBook(Number(id), data);
+    await bookStore.actions.update(id, data);
     router.push({ name: 'books.overview' });
 };
 
-console.log(book.value);
+if (!book.value) {
+    await bookStore.actions.getAll();
+}
 
 </script>
 
@@ -28,10 +29,13 @@ console.log(book.value);
                 <h2>
                     Edit Book
                 </h2>
-                <Form v-if="book" :book="book" @submit="handleSubmit" />
+
+                <Form 
+                    v-if="book" 
+                    :book="book" 
+                    @submit="handleSubmit" 
+                />
             </div>
         </div>
     </div>
-
-
 </template>

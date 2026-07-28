@@ -2,15 +2,15 @@
 import { ref } from 'vue';
 import Form from '../components/Form.vue';
 import { useRouter } from 'vue-router';
-import { createBook } from '../store'
+import { bookStore } from '../store';
 import type { CreateBook } from '../types.ts'
 
 const router = useRouter();
 
-const book = ref({
+const newBook = ref<CreateBook>({
     title: '',
     summary: '',
-    author_id: null
+    author_id: 0
 });
 
 // const handleSubmit = async (data: CreateBook) => {
@@ -22,7 +22,7 @@ const handleSubmit = async (data: CreateBook) => {
     try {
         console.log('sending:', data);
 
-        await createBook(data);
+        await bookStore.actions.create(data);
 
         router.push({ name: 'books.overview' });
     } catch (error: any) {
@@ -37,7 +37,7 @@ const handleSubmit = async (data: CreateBook) => {
         <div class="grid-container max-width">
             <div class="col-12 table-bg p-5">
                 <h2 class="dark">Add new book</h2>
-                <Form :book="book" @submit="handleSubmit" />
+                <Form :book="newBook" @submit="handleSubmit" />
             </div>
         </div>
     </div>

@@ -7,7 +7,8 @@ type Entity = {
 
 export const storeModuleFactory = <
     T extends Entity,
-    CreateT
+    CreateT,
+    UpdateT
 >(moduleName: string) => {
     const state = ref<Record<number, Readonly<T>>>({});
 
@@ -46,7 +47,7 @@ export const storeModuleFactory = <
             setters.setAll(data);
         },
 
-        update: async (id: number, item: T) => {
+        update: async (id: number, item: UpdateT) => {
             const { data } = await putRequest<T[]>(
                 `${moduleName}/${id}`,
                 item

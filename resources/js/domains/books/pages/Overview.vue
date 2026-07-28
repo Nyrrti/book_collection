@@ -1,15 +1,13 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
-import { getAllBooks, fetchBooks, deleteBook } from '../store';
+import { bookStore } from '../store';
+
+const books = bookStore.getters.all;
 
 onMounted(() => {
-    fetchBooks();
+    bookStore.actions.getAll();
 });
-
-const capitalize = (str: string): string => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
 
 </script>
 
@@ -35,9 +33,9 @@ const capitalize = (str: string): string => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="book in getAllBooks" :key="book.id">
+                        <tr v-for="book in books" :key="book.id">
                             <td class="border-bottom bold">
-                                {{ capitalize(book.title) }}
+                                {{ book.title }}
                             </td>
                             <td class="border-bottom x-small">
                                 {{ book.summary }}
@@ -48,7 +46,7 @@ const capitalize = (str: string): string => {
                                 </RouterLink>    
                             </td>
                             <td class="border-bottom text-center">
-                                <button @click="deleteBook(book.id)" class="btn delete">Delete</button>
+                                <button @click="bookStore.actions.delete(book.id)" class="btn delete">Delete</button>
                             </td>
                         </tr>
                     </tbody>
