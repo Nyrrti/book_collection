@@ -19,7 +19,7 @@ const capitalize = (str: string): string => {
             <div class="col-12 table-bg p-5 border-radius">
                 <table>
                     <colgroup>
-                        <col class="table-w-40">
+                        <col class="table-w-30">
                         <col class="">
                         <col class="table-w-12">
                         <col class="table-w-12">

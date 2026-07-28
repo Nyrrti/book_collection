@@ -7,7 +7,13 @@ const http = axios.create({
     }
 });
 
-export const getRequest = (endpoint) => http.get(endpoint);
-export const postRequest = (endpoint, data) => http.post(endpoint, data);
-export const putRequest = (endpoint, data) => http.put(endpoint, data);
-export const deleteRequest = (endpoint) => http.delete(endpoint);
+export const getRequest = <T>(endpoint: string) => http.get<T>(endpoint);
+
+export const postRequest = <T>(endpoint: string, data: unknown) =>
+    http.post<T>(endpoint, data);
+
+export const putRequest = <T>(endpoint: string, data: unknown) =>
+    http.put<T>(endpoint, data);
+
+export const deleteRequest = <T>(endpoint: string) =>
+    http.delete<T>(endpoint);
