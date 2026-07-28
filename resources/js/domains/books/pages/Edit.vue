@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import Form from '../components/Form.vue';
+import { onMounted } from 'vue';
 import { bookStore } from '../store';
 import type { UpdateBook } from '../types';
 
@@ -16,9 +17,11 @@ const handleSubmit = async (data: UpdateBook) => {
     router.push({ name: 'books.overview' });
 };
 
-if (!book.value) {
-    await bookStore.actions.getAll();
-}
+onMounted(async () => {
+    if (!book.value) {
+        await bookStore.actions.getAll();
+    }
+});
 
 </script>
 
