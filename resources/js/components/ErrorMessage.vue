@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getMessage } from '../error';
+import { getMessage } from '../services/error';
 </script>
 
 <template>

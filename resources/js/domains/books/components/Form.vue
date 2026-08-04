@@ -22,10 +22,12 @@ const handleSubmit = () => emit('submit', form.value);
 <template>
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
+            <ErrorMessage />
                  <form @submit.prevent="handleSubmit" class="row table-bg">
                     <div class="col-6 field me-3">
                          <label>Title:</label>
                         <input v-model="form.title" type="text" required />
+                        <FormError name="title" />
                     </div>
                     <div class="col-6 field">
                         <label>Author:</label>
