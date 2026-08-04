@@ -5,8 +5,8 @@ import { bookStore } from '../store';
 
 const books = bookStore.getters.all;
 
-onMounted(() => {
-    bookStore.actions.getAll();
+onMounted(async () => {
+    await bookStore.actions.getAll();
 });
 
 </script>

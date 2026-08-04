@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { fetchAuthors, getAllAuthors } from '../../authors/store';
+import { onMounted } from 'vue';
+import { authorStore } from '../../authors/store';
 
 // Fetch authors when component is mounted
-fetchAuthors();
+onMounted(async () => {
+  await authorStore.actions.getAll();
+});
+
+const authors = authorStore.getters.all;
 
 const props = defineProps({ book: Object });
 
@@ -25,7 +30,7 @@ const handleSubmit = () => emit('submit', form.value);
                     <div class="col-6 field">
                         <label>Author:</label>
                         <select v-model="form.author_id" required>
-                        <option v-for="author in getAllAuthors" :key="author.id" :value="author.id">
+                        <option v-for="author in authors" :key="author.id" :value="author.id">
                             {{ author.name }}
                         </option>
                     </select>

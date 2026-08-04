@@ -29,14 +29,15 @@ onMounted(async () => {
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
             <div class="col-12 table-bg p-5">
-                <h2>
+                <RouterLink :to="{ name: 'books.overview' }" class="btn back">
+                    Back
+                </RouterLink>
+                <h2 class="my-3">
                     Edit Book
                 </h2>
 
                 <Form 
-                    v-if="book" 
-                    :book="book" 
-                    @submit="handleSubmit" 
+                    v-if="book" :book="book" @submit="handleSubmit" 
                 />
             </div>
         </div>

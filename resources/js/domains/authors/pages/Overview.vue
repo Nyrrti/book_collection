@@ -1,11 +1,14 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
-import { getAllAuthors, fetchAuthors, deleteAuthor } from '../store';
+import { authorStore } from '../store';
 
-onMounted(() => {
-    fetchAuthors();
+const authors = authorStore.getters.all;
+
+onMounted(async () => {
+  await authorStore.actions.getAll();
 });
+
 
 </script>
 
@@ -29,7 +32,7 @@ onMounted(() => {
                     </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="author in getAllAuthors" :key="author.id">
+                        <tr v-for="author in authors" :key="author.id">
                             <td class="border-bottom">
                                 {{ author.name }}
                             </td>
@@ -39,7 +42,7 @@ onMounted(() => {
                                 </RouterLink>    
                             </td>
                             <td class="border-bottom text-center">
-                                <button @click="deleteAuthor(author.id)" class="btn delete">Delete</button>
+                                <button @click="authorStore.actions.delete(author.id)" class="btn delete">Delete</button>
                             </td>
                         </tr>
                     </tbody>

@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { fetchAuthors, getAllAuthors } from '../../authors/store';
+import { onMounted } from 'vue';
+import { authorStore } from '../../authors/store';
 
 // Fetch authors when component is mounted
-fetchAuthors();
+onMounted(async () => {
+  await authorStore.actions.getAll();
+});
 
 const props = defineProps({ author: Object });
 

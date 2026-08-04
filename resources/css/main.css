@@ -18,8 +18,8 @@
     --font-color-light: #c1dcff;
     --font-color-dark: #1f2023;
     --font-color-medium: #40444b;
-    --font-color-title-light: #ff9f55;
-    --font-color-title-dark: #ef6d0a;
+    --font-color-title-light: #ffb855;
+    --font-color-title-dark: #ef970a;
 
     --font-size-xsm: 0.95rem;
     --font-size-sm: 1rem;
@@ -224,13 +224,13 @@ li.nav {
 }
 
 .btn.back {
-    background-color: var(--color-orange);
+    background-color: var(--color-purple);
     color: var(--font-color-light);
 }
 
 .btn.back:hover {
-   background-color: color-mix(in srgb, var(--color-orange) 85%, black); 
-   color: var(--font-color-light);
+   background-color: color-mix(in srgb, var(--color-purple) 85%, black); 
+   color: var(--font-color-title-light);
 }
 
 .btn.edit {

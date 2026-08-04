@@ -36,7 +36,10 @@ const handleSubmit = async (data: CreateBook) => {
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
             <div class="col-12 table-bg p-5">
-                <h2 class="dark">Add new book</h2>
+                <RouterLink :to="{ name: 'books.overview' }" class="btn back">
+                    Back
+                </RouterLink>
+                <h2 class="dark my-3">Add new book</h2>
                 <Form :book="newBook" @submit="handleSubmit" />
             </div>
         </div>
