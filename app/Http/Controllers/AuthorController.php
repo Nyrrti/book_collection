@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Resources\AuthorResource;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Models\Author;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 
 class AuthorController extends Controller
@@ -28,21 +30,32 @@ class AuthorController extends Controller
         return AuthorResource::collection($authors);
     }
 
+    // public function destroy(Author $author)
+    // {
+    //     if ($author->books()->exists()) {
+    //         return response()->json([
+    //             'message' => 'This author cannot be deleted because they still have linked books.'
+    //         ], 422);
+    //     }
+
+    //     $author->delete();
+
+    //     return response()->json([
+    //         'message' => 'Author deleted!'
+    //     ]);
+    // }
+
     public function destroy(Author $author)
     {
         if ($author->books()->exists()) {
-            return response()->json([
+            throw new HttpResponseException(response()->json([
+                'errors' => [],
                 'message' => 'This author cannot be deleted because they still have linked books.'
-            ], 422);
+            ], 422));
         }
 
         $author->delete();
-
-        return response()->json([
-            'message' => 'Author deleted!'
-        ]);
     }
-
 }
 
 
