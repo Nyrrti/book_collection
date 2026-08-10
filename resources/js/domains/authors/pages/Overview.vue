@@ -1,7 +1,9 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue';
+import {ref} from 'vue';
 import { authorStore } from '../store';
+import ErrorMessage from '../../../components/ErrorMessage.vue';
 
 const authors = authorStore.getters.all;
 
@@ -9,6 +11,29 @@ onMounted(async () => {
   await authorStore.actions.getAll();
 });
 
+/**
+ * Stores the id of the author whose delete request failed.
+ * Null means there is currently no failed author.
+ */
+const failedAuthorId = ref<number | null>(null);
+
+/**
+ * Tries to delete an author.
+ *
+ * If the delete fails, the author's id is saved so the
+ * error message can be shown under the correct table row.
+ *
+ * @param id Id of the author that should be deleted.
+ */
+const deleteAuthor = async (id: number) => {
+    try {
+        failedAuthorId.value = null;
+
+        await authorStore.actions.delete(id);
+    } catch (error) {
+        failedAuthorId.value = id;
+    }
+};
 
 </script>
 
@@ -32,19 +57,28 @@ onMounted(async () => {
                     </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="author in authors" :key="author.id">
-                            <td class="border-bottom">
-                                {{ author.name }}
-                            </td>
-                            <td class="border-bottom text-center">
-                                <RouterLink :to="{ name: 'authors.edit', params: { id: author.id } }" class="btn edit">
-                                    Edit
-                                </RouterLink>    
-                            </td>
-                            <td class="border-bottom text-center">
-                                <button @click="authorStore.actions.delete(author.id)" class="btn delete">Delete</button>
-                            </td>
-                        </tr>
+                        <template v-for="author in authors" :key="author.id">
+                            <tr>
+                                <td class="border-bottom">
+                                    {{ author.name }}
+                                </td>
+                                <td class="border-bottom text-center">
+                                    <RouterLink :to="{ name: 'authors.edit', params: { id: author.id } }" class="btn edit">
+                                        Edit
+                                    </RouterLink>    
+                                </td>
+                                <td class="border-bottom text-center">
+                                    <button @click="deleteAuthor(author.id)" class="btn delete">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr v-if="failedAuthorId === author.id">
+                                <td colspan="3">
+                                    <ErrorMessage />
+                                </td>
+                            </tr>
+                        </template>
                     </tbody>
                 </table>
             </div>

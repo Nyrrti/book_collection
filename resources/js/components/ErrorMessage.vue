@@ -3,7 +3,7 @@ import { getMessage } from '../services/error';
 </script>
 
 <template>
-    <div v-if="getMessage">
+    <div v-if="getMessage" class="error-message">
         {{ getMessage }}
     </div>
 </template>

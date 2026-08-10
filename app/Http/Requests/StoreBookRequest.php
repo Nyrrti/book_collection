@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBookRequest extends BaseFormRequest
 {
@@ -25,6 +24,16 @@ class StoreBookRequest extends BaseFormRequest
             'title' => 'required|string|max:255',
             'summary' => 'required|string',
             'author_id' => 'required|exists:authors,id'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Add a title.',
+            'title.max' => 'The title may contain max 255 characters.',
+            'author_id.required' => 'Please select an author.',
+            'author_id.exists' => 'The selected author does not exist.',
         ];
     }
 }

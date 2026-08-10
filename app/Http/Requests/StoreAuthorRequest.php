@@ -25,4 +25,12 @@ class StoreAuthorRequest extends BaseFormRequest
             'name' => 'required|string|max:255',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Add a name.',
+            'title.max' => 'The name may contain max 255 characters.',
+        ];
+    }
 }

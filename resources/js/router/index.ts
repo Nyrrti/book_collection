@@ -5,6 +5,10 @@ import { authorRoutes } from '../domains/authors/routes';
 export const router = createRouter({
     history: createWebHistory(),
     routes: [
+        {
+            path: '/',
+            redirect: '/books',
+        },
         ...bookRoutes,
         ...authorRoutes,
     ],

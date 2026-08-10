@@ -5,12 +5,13 @@
     --color-darkblue: #15568a;
     --color-lightblue: #77a1ea;
     --color-purple: #52449c;
-    --color-darkpurple: #371179;
+    --color-darkpurple: #391774;
     --color-cyan: #52d7c5;
     --color-medium-grey: #c0c1c3;
-    --color-red: #d08383;
+    --color-light-red: #d08383;
+    --color-red: #b71a1a;
 
-    --table-bg: #e0e0e8;
+    --table-bg: #e6e6ef;
     --table-title: #ffbf5f;
     --table-title-dark: #0C5461;
     --table-border: #697e9d;
@@ -32,8 +33,8 @@
 
     --gradient-bg: linear-gradient(
         180deg,
-        rgb(49, 32, 116) 0%,
-        rgb(39, 65, 107) 75%
+        rgb(79, 57, 165) 0%,
+        rgb(51, 98, 173) 75%
     );
 }
 
@@ -254,12 +255,12 @@ li.nav {
 }
 
 .btn.delete {
-    background-color: var(--color-red);
+    background-color: var(--color-light-red);
     color: var(--font-color-dark);
 }
 
 .btn.delete:hover {
-    background-color: color-mix(in srgb, var(--color-red) 85%, black);
+    background-color: color-mix(in srgb, var(--color-light-red) 85%, black);
     color: var(--font-color-light);
 }
 
@@ -374,7 +375,7 @@ td {
     background-color: var(--table-bg);
     font-size: var(--font-size-sm);
     text-align: left;
-    padding: 0.9rem;
+    padding: 1rem;
 }
 
 td.border-bottom {
@@ -397,6 +398,21 @@ tbody tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-error {
+    color: var(--color-red);
+    font-size: var(--font-size-xsm);
+    margin-top: 4px;
+}
+
+.error-message {
+    color: var(--color-red);
+    background-color: #fdeaea;
+    border: 1px solid var(--color-red);
+    padding: 0.75rem 1rem;
+    margin-bottom: 16px;
+    border-radius: 4px;
 }
 
 /* Extra large devices (extra large laptops and desktops, 2000px and up) */

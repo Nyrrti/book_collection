@@ -2,6 +2,7 @@
 
 import { onMounted } from 'vue';
 import { bookStore } from '../store';
+import ErrorMessage from '../../../components/ErrorMessage.vue';
 
 const books = bookStore.getters.all;
 
@@ -14,6 +15,9 @@ onMounted(async () => {
 <template>
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
+            <div class="col-12">
+                <ErrorMessage />
+            </div>
             <div class="col-12 table-bg p-5 border-radius">
                 <table>
                     <colgroup>
