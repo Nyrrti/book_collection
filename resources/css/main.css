@@ -130,6 +130,14 @@ a:hover {
     color: var(--color-cyan);
 }
 
+a.item-link {
+    color: var(--table-title-dark);
+}
+
+.item-link:hover {
+    text-decoration: underline;
+}
+
 a.footer {
     color: var(--color-lighter-orange);
     font-size: var(--font-size-xsm);
@@ -237,6 +245,7 @@ li.nav {
 .btn.edit {
     background-color: var(--color-lightblue);
     color: var(--font-color-dark);
+    font-weight: normal;
 }
 
 .btn.edit:hover {

@@ -39,7 +39,9 @@ onMounted(async () => {
                     <tbody>
                         <tr v-for="book in books" :key="book.id">
                             <td class="border-bottom bold">
-                                {{ book.title }}
+                                <RouterLink :to="{ name: 'books.show', params: { id: book.id } }" class="item-link">
+                                    {{ book.title }}
+                                </RouterLink>
                             </td>
                             <td class="border-bottom x-small">
                                 {{ book.summary }}
