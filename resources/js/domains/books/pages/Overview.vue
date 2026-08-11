@@ -43,8 +43,11 @@ onMounted(async () => {
                                     {{ book.title }}
                                 </RouterLink>
                             </td>
-                            <td class="border-bottom x-small">
-                                {{ book.summary }}
+                            <td class="border-bottom">
+                                <p class="text-overview">
+                                    {{ book.summary }}
+                                </p>
+                                
                             </td>
                             <td class="border-bottom text-center">
                                 <RouterLink :to="{ name: 'books.edit', params: { id: book.id } }" class="btn edit">

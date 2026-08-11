@@ -53,14 +53,19 @@ const deleteAuthor = async (id: number) => {
                         <th class="table-title-xl">Authors</th>
                     </tr>
                     <tr>
-                        <th class="table-title">Name:</th>
+                        <th class="table-title">
+                            Name:
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
                         <template v-for="author in authors" :key="author.id">
                             <tr>
                                 <td class="border-bottom">
-                                    {{ author.name }}
+                                    <h4 class="bold">
+                                        {{ author.name }}
+                                    </h4>
+                                    
                                 </td>
                                 <td class="border-bottom text-center">
                                     <RouterLink :to="{ name: 'authors.edit', params: { id: author.id } }" class="btn edit">

@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Resources\ReviewResource;
+use App\Http\Requests\StoreReviewRequest;
+use App\Models\Review;
+
+use Illuminate\Http\Request;
+
+class ReviewController extends Controller
+{
+
+    public function index() {
+        return ReviewResource::collection(Review::all());
+    }
+
+    public function store(StoreReviewRequest $request) {
+        $review = Review::create($request->validated());
+
+        $reviews = Review::all();
+        return ReviewResource::collection($reviews);
+    }
+}

@@ -20,8 +20,9 @@ class ReviewFactory extends Factory
     {
         return [
             'book_id' => Book::factory(),
-            'review_rating' => fake()->numberBetween(1, 10),
-            'review_description' => fake()->sentence(),
+            'title' => fake()->words(4, true),
+            'rating' => fake()->numberBetween(1, 10),
+            'description' => fake()->sentence(),
         ];
     }
 }

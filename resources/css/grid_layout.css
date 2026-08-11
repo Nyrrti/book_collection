@@ -246,6 +246,10 @@ td input[type="number"] {
     justify-items: center;
 }
 
+.gap-2 {gap:0.2rem;}
+.gap-3 {gap:0.3rem;}
+.gap-4 {gap:0.4rem;}
+
 .card {
     display: flex;
 }
