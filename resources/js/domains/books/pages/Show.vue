@@ -20,7 +20,7 @@ onMounted(async () => {
 <template>
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
-            <div class="col-12 pt-3">
+            <div class="col-12">
                 <ErrorMessage />
             </div>
             <div 
@@ -82,8 +82,8 @@ onMounted(async () => {
                             
                         </div>
                     </div>
-
-                    <p v-else>
+                    
+                    <p v-else class="col-12">
                         No reviews yet.
                     </p>
                 </div>

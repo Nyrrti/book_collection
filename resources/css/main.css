@@ -186,8 +186,7 @@ a.footer:hover {
  }
 
 .bold {
-    font-weight: bold;
-    color: var(--font-color-medium);
+    font-weight: 700;
 }
 
 .text-muted {

@@ -15,10 +15,8 @@ onMounted(async () => {
 <template>
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
-            <div class="col-12">
-                <ErrorMessage />
-            </div>
             <div class="col-12 table-bg p-5 border-radius">
+                <ErrorMessage />
                 <table>
                     <colgroup>
                         <col class="table-w-30">
