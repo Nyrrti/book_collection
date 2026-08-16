@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ReviewResource;
 use App\Http\Requests\StoreReviewRequest;
 use App\Models\Review;
-
-use Illuminate\Http\Request;
-
 class ReviewController extends Controller
 {
 
@@ -20,5 +17,10 @@ class ReviewController extends Controller
 
         $reviews = Review::all();
         return ReviewResource::collection($reviews);
+    }
+
+    public function destroy(Review $review) {
+        $review->delete();
+        return response()->json(['message' => 'Review Deleted!']);
     }
 }

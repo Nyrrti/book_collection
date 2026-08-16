@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
-import Form from '../components/Form.vue';
 import { onMounted } from 'vue';
 import { bookStore } from '../store';
+import Form from '../components/Form.vue';
 import type { UpdateBook } from '../types';
 
 const route = useRoute();
 const router = useRouter();
 
 const id = Number(route.params.id);
-
 const book = bookStore.getters.getById(id);
 
 const handleSubmit = async (data: UpdateBook) => {

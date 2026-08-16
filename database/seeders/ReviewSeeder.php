@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
+use App\Models\Book;
 
 class ReviewSeeder extends Seeder
 {
@@ -13,6 +13,11 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        Review::factory(10)->create();
+        Book::all()->each(function ($book) {
+            Review::factory()
+                ->count(rand(0, 5))
+                ->for($book)
+                ->create();
+        });
     }
 }

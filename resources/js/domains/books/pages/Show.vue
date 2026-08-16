@@ -3,11 +3,11 @@ import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { bookStore } from '../store';
 import ErrorMessage from '../../../components/ErrorMessage.vue';
+import ReviewBlock from '../../reviews/components/ReviewBlock.vue';
 
 const route = useRoute();
 
 const id = Number(route.params.id);
-
 const book = bookStore.getters.getById(id);
 
 onMounted(async () => {
@@ -50,7 +50,7 @@ onMounted(async () => {
                         </RouterLink> 
                         <button @click="bookStore.actions.delete(book.id)" class="btn delete">Delete</button> 
                     </div>
-                    <div class="col-12 pt-3 pb-5 mt-2 border-top">
+                    <div class="col-12 pt-4 pb-5 mt-3 border-top">
                         <h4 class="bold">
                             Summary:
                         </h4>
@@ -58,31 +58,10 @@ onMounted(async () => {
                             {{ book.summary }}
                         </p>
                     </div>
-                    <div class="col-12">
-                        <h4 class="bold">
-                            Reviews:
-                        </h4> 
-                    </div>
+                    <!-- Reviews -->
                     <div class="col-12" v-if="book.reviews.length">
-                        <div class="review-block p-3"
-                            v-for="review in book.reviews"
-                            :key="review.id"
-                        >
-                            <div class="rating-block"> 
-                                {{ review.rating }}/10
-                            </div>
-                            <div class="review-content">
-                                <h4 class="bold">
-                                {{ review.title }}
-                                </h4>
-                                <p class="text">
-                                    {{ review.description }}
-                                </p>
-                            </div>
-                            
-                        </div>
+                       <ReviewBlock />
                     </div>
-                    
                     <p v-else class="col-12">
                         No reviews yet.
                     </p>
