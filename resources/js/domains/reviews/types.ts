@@ -8,7 +8,6 @@ export interface Review {
 }
 
 export type CreateReview = Omit<Review, 'id'> & {
-    author_id: number | null;
 };
 
 export type UpdateReview = Omit<Review, 'id'>;

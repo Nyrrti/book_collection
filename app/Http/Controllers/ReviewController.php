@@ -12,6 +12,7 @@ class ReviewController extends Controller
         return ReviewResource::collection(Review::all());
     }
 
+    //CREATE
     public function store(StoreReviewRequest $request) {
         $review = Review::create($request->validated());
 
@@ -19,8 +20,20 @@ class ReviewController extends Controller
         return ReviewResource::collection($reviews);
     }
 
+    //UPDATE
+    public function update(StoreReviewRequest $request, Review $review) {
+        $review->update($request->validated());
+
+        $reviews = Review::all();
+        return ReviewResource::collection($reviews);
+    }
+    
+    //DELETE
     public function destroy(Review $review) {
-        $review->delete();
-        return response()->json(['message' => 'Review Deleted!']);
+        
+        return response()->json([
+            'message' => 'Review Deleted!',
+            'isDeleted' => ($review->delete() === true )
+        ]);
     }
 }

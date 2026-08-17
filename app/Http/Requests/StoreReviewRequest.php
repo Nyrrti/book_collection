@@ -25,7 +25,7 @@ class StoreReviewRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'rating' => 'required',
-            'book_id' => 'required|exists:book,id',
+            'book_id' => 'required|exists:books,id',
         ];
     }
 

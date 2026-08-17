@@ -4,6 +4,7 @@ import { onMounted } from 'vue';
 import { authorStore } from '../../authors/store';
 import FormError from '../../../components/FormError.vue';
 import ErrorMessage from '../../../components/ErrorMessage.vue';
+import type { CreateBook } from '../types';
 
 // Fetch authors when component is mounted
 onMounted(async () => {
@@ -12,7 +13,9 @@ onMounted(async () => {
 
 const authors = authorStore.getters.all;
 
-const props = defineProps({ book: Object });
+const props = defineProps<{
+    book: CreateBook
+}>();
 
 const emit = defineEmits(['submit']);
 
@@ -50,8 +53,7 @@ const handleSubmit = () => emit('submit', form.value);
                     <div class="col-12 d-flex justify-end">
                         <button type="submit" class="btn add">Add</button>
                     </div>
-                </form>
-            
+                </form>  
         </div>
     </div>
 </template>

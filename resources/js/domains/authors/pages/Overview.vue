@@ -23,22 +23,21 @@ const failedAuthorId = ref<number | null>(null);
  * If the delete fails, the author's id is saved so the
  * error message can be shown under the correct table row.
  *
- * @param id Id of the author that should be deleted.
+ * @param authorId Id of the author that should be deleted.
  */
-const deleteAuthor = async (id: number) => {
+const deleteAuthor = async (authorId: number) => {
     try {
         failedAuthorId.value = null;
 
-        await authorStore.actions.delete(id);
+        await authorStore.actions.delete(authorId);
     } catch (error) {
-        failedAuthorId.value = id;
+        failedAuthorId.value = authorId;
     }
 };
 
 </script>
 
 <template>
-
     <div class="grid-container-fluid">
         <div class="grid-container max-width">
             <div class="col-12 table-bg p-5">
@@ -89,5 +88,4 @@ const deleteAuthor = async (id: number) => {
             </div>
         </div>
     </div>
-
 </template>

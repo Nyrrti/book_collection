@@ -1,20 +1,31 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { bookStore } from '../store';
 import ErrorMessage from '../../../components/ErrorMessage.vue';
 import ReviewBlock from '../../reviews/components/ReviewBlock.vue';
 
 const route = useRoute();
+const router = useRouter();
 
-const id = Number(route.params.id);
-const book = bookStore.getters.getById(id);
+const bookId = Number(route.params.id);
+const book = bookStore.getters.getById(bookId);
 
 onMounted(async () => {
     if (!book.value) {
         await bookStore.actions.getAll();
     }
 });
+
+async function deleteBook(bookId: number) {
+    await bookStore.actions.delete(bookId);
+
+    router.push({
+        name: 'books.overview'
+    });
+}
+
 </script>
 
 <template>
@@ -48,7 +59,7 @@ onMounted(async () => {
                         <RouterLink :to="{ name: 'books.edit', params: { id: book.id } }" class="btn edit">
                             Edit
                         </RouterLink> 
-                        <button @click="bookStore.actions.delete(book.id)" class="btn delete">Delete</button> 
+                        <button @click="deleteBook(book.id)" class="btn delete">Delete</button> 
                     </div>
                     <div class="col-12 pt-4 pb-5 mt-3 border-top">
                         <h4 class="bold">

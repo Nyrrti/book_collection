@@ -5,21 +5,36 @@
     import { reviewStore } from '../../reviews/store';
 
     const route = useRoute();
-    const id = Number(route.params.id);
-    const book = bookStore.getters.getById(id);
+    const bookId = Number(route.params.id);
+    const book = bookStore.getters.getById(bookId);
 
     onMounted(async () => {
     if (!book.value) {
         await bookStore.actions.getAll();
     }
     });
+
+    async function deleteReview(reviewId: number) {
+        await reviewStore.actions.delete(reviewId);
+        await bookStore.actions.getAll();
+    }
+
 </script>
 
 <template>
-    <div class="col-12">
+    <div class="col-12 d-flex justify-between items-end py-2">
         <h4 class="bold">
             Reviews:
         </h4> 
+        <RouterLink
+            :to="{
+                name: 'reviews.create',
+                params: { bookId }
+            }"
+            class="btn"
+        >
+            Create Review
+        </RouterLink>
     </div>
     <div class="review-block p-1 mb-1"
         v-for="review in book?.reviews ?? []"
@@ -66,7 +81,7 @@
             </RouterLink>
         
         <button 
-            @click="reviewStore.actions.delete(review.id)" 
+            @click="deleteReview(review.id)" 
             class="icon-btn delete-btn" 
             title="Delete review"
         >
