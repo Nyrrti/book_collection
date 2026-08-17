@@ -7,7 +7,8 @@ export interface Review {
     description: string;
 }
 
-export type CreateReview = Omit<Review, 'id'> & {
-};
+export type CreateReview = Omit<Review, 'id' | 'rating'> & {
+    rating: number | null;
+};  
 
 export type UpdateReview = Omit<Review, 'id'>;

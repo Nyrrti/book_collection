@@ -14,7 +14,7 @@
     const newReview = ref<CreateReview>({
         title: '',
         book_id: bookId,
-        rating: 0 ,
+        rating: null ,
         description: '',
     });
 
@@ -49,7 +49,7 @@
                 >
                     Back
                 </RouterLink>
-                <h2 class="dark my-3">Add new review</h2>
+                <h2 class="dark border-bottom my-3">Add new review</h2>
                 <Form :review="newReview" @submit="handleSubmit" />
             </div>
         </div>

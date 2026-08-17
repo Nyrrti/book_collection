@@ -31,7 +31,7 @@ onMounted(async () => {
                 <RouterLink :to="{ name: 'authors.overview' }" class="btn back">
                     Back
                 </RouterLink>
-                <h2 class="my-3">
+                <h2 class="border-bottom my-3">
                     Edit Author
                 </h2>
                 <Form v-if="author" :author="author" @submit="handleSubmit" />

@@ -39,6 +39,9 @@ const handleSubmit = () => emit('submit', form.value);
                     <div class="col-6 field">
                         <label>Author:</label>
                         <select v-model="form.author_id" required>
+                            <option :value="null" disabled>
+                                Select an author
+                            </option>
                         <option v-for="author in authors" :key="author.id" :value="author.id">
                             {{ author.name }}
                         </option>

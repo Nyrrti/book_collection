@@ -15,7 +15,7 @@
     --table-bg: #e6e6ef;
     --table-title: #ffbf5f;
     --table-title-dark: #075663;
-    --table-border: #697e9d;
+    --table-border: #768db0;
 
     --font-color-light: #c1dcff;
     --font-color-dark: #27282c;
@@ -351,6 +351,7 @@ input {
 textarea {
     min-height: 6rem;
     max-height: 20rem;
+    resize: vertical;
     background-color: var(--bg-color-white);
     line-height: 1.35rem;
     border: 1px solid var(--color-medium-grey);
@@ -417,21 +418,6 @@ tbody tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.form-error {
-    color: var(--color-red);
-    font-size: var(--font-size-xsm);
-    margin-top: 4px;
-}
-
-.error-message {
-    color: var(--color-red);
-    background-color: #fdeaea;
-    border: 1px solid var(--color-red);
-    padding: 0.75rem 1rem;
-    margin-bottom: 16px;
-    border-radius: 4px;
 }
 
 /* Extra large devices (extra large laptops and desktops, 2000px and up) */

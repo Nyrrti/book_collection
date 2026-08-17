@@ -10,7 +10,7 @@ const router = useRouter();
 const newBook = ref<CreateBook>({
     title: '',
     summary: '',
-    author_id: 0
+    author_id: null,
 });
 
 // const handleSubmit = async (data: CreateBook) => {
@@ -39,7 +39,7 @@ const handleSubmit = async (data: CreateBook) => {
                 <RouterLink :to="{ name: 'books.overview' }" class="btn back">
                     Back
                 </RouterLink>
-                <h2 class="dark my-3">Add new book</h2>
+                <h2 class="dark border-bottom my-3">Add new book</h2>
                 <Form :book="newBook" @submit="handleSubmit" />
             </div>
         </div>

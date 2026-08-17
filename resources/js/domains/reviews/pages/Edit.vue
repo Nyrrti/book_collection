@@ -45,7 +45,7 @@
                 >
                     Back
                 </RouterLink>
-                <h2 class="my-3">
+                <h2 class="border-bottom my-3">
                     Edit Review
                 </h2>
                 <Form v-if="review" :review="review" @submit="handleSubmit" />

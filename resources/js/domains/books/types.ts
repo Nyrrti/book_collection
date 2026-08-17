@@ -20,7 +20,7 @@ export interface Book {
     reviews: Review[];
 }
 
-export type CreateBook = Omit<Book, 'id' | 'author' | 'reviews'> & {
+export type CreateBook = Omit<Book, 'id' | 'author' | 'author_id' | 'reviews'> & {
     author_id: number | null;
 };
 

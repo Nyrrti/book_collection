@@ -41,7 +41,12 @@
                     </div>
                     <div class="col-4 field">
                         <label>Rating:</label>
-                        <input v-model="form.rating" type="number" required />
+                        <input v-model="form.rating" 
+                            type="number"
+                            min="0"
+                            max="10"
+                            required
+                        />
                     <FormError name="rating" />
                     </div>
                     <div class="col-12 field">

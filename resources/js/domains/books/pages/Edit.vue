@@ -31,7 +31,7 @@ onMounted(async () => {
                 <RouterLink :to="{ name: 'books.overview' }" class="btn back">
                     Back
                 </RouterLink>
-                <h2 class="my-3">
+                <h2 class="border-bottom my-3">
                     Edit Book
                 </h2>
 

@@ -32,7 +32,7 @@ const handleSubmit = async (data: Author) => {
                 <RouterLink :to="{ name: 'authors.overview' }" class="btn back">
                     Back
                 </RouterLink>
-                <h2 class="dark my-3">Add new Author</h2>
+                <h2 class="dark border-bottom my-3">Add new Author</h2>
                 <Form :author="author" @submit="handleSubmit" />
             </div>
         </div>
