@@ -5,7 +5,7 @@ import ErrorMessage from '../../../components/ErrorMessage.vue';
 import type { Author } from '../types';
 
 defineProps<{
-    authors: readonly Author[];
+    authors: Author[];
 }>();
 
 /**

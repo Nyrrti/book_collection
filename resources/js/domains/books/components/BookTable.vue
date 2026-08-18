@@ -1,14 +1,12 @@
 <script setup lang="ts">
 
-import { onMounted } from 'vue';
 import { bookStore } from '../store';
 import ErrorMessage from '../../../components/ErrorMessage.vue';
+import type { Book } from '../types';
 
-const books = bookStore.getters.all;
-
-onMounted(async () => {
-    await bookStore.actions.getAll();
-});
+defineProps<{
+    books: Book[];
+}>();
 
 </script>
 
